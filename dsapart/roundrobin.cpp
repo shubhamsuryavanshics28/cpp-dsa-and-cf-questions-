@@ -27,7 +27,6 @@ int main() {
         for (int i = 0; i < n; i++) {
             if (remaining[i] > 0) {
                 done = false;
-
                 if (remaining[i] > tq) {
                     time += tq;
                     remaining[i] -= tq;
@@ -38,7 +37,7 @@ int main() {
                 }
             }
         }
-
+        
         if (done)
             break;
     }
