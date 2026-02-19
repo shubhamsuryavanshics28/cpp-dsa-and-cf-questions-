@@ -34,6 +34,18 @@ void nthlevelrev(Node* root,int curr,int level){
     nthlevelrev(root->right,curr+1,level);
     nthlevelrev(root->left,curr+1,level);
 }
+void levelorderqueue(Node* root){
+    queue<Node*> q;
+    q.push(root);
+    while(q.size()>0){
+        Node* temp = q.front();
+        q.pop();
+        cout<<temp->val<<" ";
+        if(temp->left!=NULL) q.push(temp->left);
+        if(temp->right!=NULL) q.push(temp->right);
+    }
+    cout<<endl;
+}
 void levelorder(Node* root){
     int n = levels(root);
     for(int i=1;i<=n;++i){
@@ -60,7 +72,7 @@ int main(){
     //g->left = h;
 
     //nthlevel(a,1,3);
-    levelorder(a);
+    levelorderqueue(a);
 
     return 0;
 }
