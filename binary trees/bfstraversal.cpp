@@ -18,14 +18,26 @@ int levels(Node* root){
 }
 void nthlevel(Node* root,int curr,int level){
     if(root==NULL) return;
-    if(curr==level) cout<<root->val<<" ";
+    if(curr==level){
+        cout<<root->val<<" ";
+        return;
+    }
     nthlevel(root->left,curr+1,level);
     nthlevel(root->right,curr+1,level);
+}
+void nthlevelrev(Node* root,int curr,int level){
+    if(root==NULL) return;
+    if(curr==level){
+        cout<<root->val<<" ";
+        return;
+    }
+    nthlevelrev(root->right,curr+1,level);
+    nthlevelrev(root->left,curr+1,level);
 }
 void levelorder(Node* root){
     int n = levels(root);
     for(int i=1;i<=n;++i){
-        nthlevel(root,1,i);
+        nthlevelrev(root,1,i);
         cout<<"\n";
     }
 }
