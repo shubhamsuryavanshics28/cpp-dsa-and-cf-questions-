@@ -24,6 +24,12 @@ void inorder(Node* root){
     cout<<root->val<<" ";
     inorder(root->right);
 }
+void postorder(Node* root){
+    if(root==NULL) return;
+    postorder(root->left);
+    postorder(root->right);
+    cout<<root->val<<" ";
+}
 int main(){
     Node* a = new Node(1);
     Node* b = new Node(2);
