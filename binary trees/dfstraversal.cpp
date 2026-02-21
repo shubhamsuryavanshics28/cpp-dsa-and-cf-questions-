@@ -46,12 +46,12 @@ int main(){
     b->right = e;
     c->left = f;
     c->right = g;
-    g->left = h;
+    //g->left = h;
 
     preorder(a);
     cout<<"\n";
-    inorder(a);
-    cout<<"\n";
+    // inorder(a);
+    // cout<<"\n";
 
     return 0;
 }
