@@ -1,2 +1,0 @@
-inorder(a);
-    // cout<<"\n";
