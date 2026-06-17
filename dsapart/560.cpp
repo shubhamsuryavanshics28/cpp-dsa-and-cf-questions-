@@ -2,30 +2,48 @@
 using namespace std;
 
 int main(){
-    vector<int> nums={1,1,1};
-    int k=2;
-    int sum=0;
-    int count=0;
-    int lo=0;
-    int hi = lo+1;
-    while(lo<nums.size()){
-        if(hi>=nums.size()){
-            lo++;
-            hi = lo+1;
-            continue;
-        }
-        sum = 0;
-        for(int i=lo;i<=hi;i++){
-            sum += nums[i]; 
-        }
-        if(sum==k){
+    vector<int> nums={0,0,0,0};
+    int k=0;
+    int count = 0;
+    vector<int> pre(nums.size());
+    unordered_map<int,int> m;
+    pre[0] = nums[0];
+    for(int i=1;i<nums.size();++i){
+        pre[i] = nums[i] + pre[i-1];
+    }
+    for(int i=0;i<nums.size();++i){
+        if(pre[i]==k){
             count++;
-        }else{
-            hi++;
         }
+        int rem = pre[i] - k;
+        if(m.find(rem)!=m.end()) count += m[rem];
+        m[pre[i]]++;
     }
     cout<<count<<"\n";
 
-
     return 0;
 }
+
+
+// class Solution {
+// public:
+//     int subarraySum(vector<int>& nums, int k) {
+//         int n = nums.size();
+//         vector<int> pre(n,0);
+//         pre[0] = nums[0];
+//         for(int i=1;i<n;++i){
+//             pre[i] = nums[i] + pre[i-1];
+//         }
+//         unordered_map<int,int> mp;
+//         int count=0;
+//         for(int i=0;i<n;++i){
+//             if(pre[i]==k){
+//                 count++;
+//             }
+//             int rem = pre[i] - k;
+//             if(mp.find(rem)!=mp.end()) count += mp[rem];
+//             mp[pre[i]]++;
+//         }
+//         return count;
+//     }
+// };
