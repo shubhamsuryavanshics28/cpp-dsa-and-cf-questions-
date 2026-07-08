@@ -1,0 +1,16 @@
+# VS Code
+.vscode/
+
+# JetBrains IDEs
+.idea/
+
+# Competitive Programming Helper
+.cph/
+
+# Executables
+*.exe
+*.out
+
+# Object files
+*.o
+*.obj
