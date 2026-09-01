@@ -153,7 +153,7 @@ void solve(){
     vector<long long> res(n + 1);
     res[0] = 0;
     for(int i = 0; i < n; ++i){
-        ans += 2 * a * temp[i].first;
+        ans += 2*a*temp[i].first;
         count++;
         if(i % 2 == 0) res[temp[i].second] = -a;
         else res[temp[i].second] = a;
