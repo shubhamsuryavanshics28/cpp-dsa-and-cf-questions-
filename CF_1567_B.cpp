@@ -144,7 +144,7 @@ long long getXor(long long n) {
 
 void solve() {
     long long a, b;
-    cin >> a >> b;
+    cin>>a>>b;
 
     long long x = getXor(a-1);
     if (x==b){
