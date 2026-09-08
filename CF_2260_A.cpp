@@ -163,7 +163,6 @@ void solve(){
             return;
         }
     }
-    
 }
 
 int main(){
