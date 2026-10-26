@@ -35,12 +35,8 @@ long long fbu(vector<int>& colors, vector<vector<long long>>& dp) {
         for (int i = 0; i + len <= n; i++) {
             int j = i + len - 1;
             dp[i][j] = LLONG_MAX;
-
             for (int k = i; k < j; k++) {
-                long long cost = dp[i][k]
-                               + dp[k + 1][j]
-                               + g(colors, i, k) * g(colors, k + 1, j);
-
+                long long cost = dp[i][k] + dp[k + 1][j] + g(colors, i, k) * g(colors, k + 1, j);
                 dp[i][j] = min(dp[i][j], cost);
             }
         }
